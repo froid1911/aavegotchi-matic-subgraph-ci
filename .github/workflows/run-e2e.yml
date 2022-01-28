@@ -5,7 +5,7 @@ on:
     branches: main
 
 jobs:
-  deploy:
+  e2e:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
