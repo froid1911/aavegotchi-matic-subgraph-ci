@@ -59,6 +59,7 @@ import {
   PORTAL_STATUS_OPENED,
   PORTAL_STATUS_CLAIMED,
   BIGINT_ZERO,
+  STATUS_AAVEGOTCHI,
 } from "../utils/constants";
 import { BigInt, log } from "@graphprotocol/graph-ts";
 
@@ -464,7 +465,7 @@ export function handleTransfer(event: Transfer): void {
 
   // ERC721 transfer can be portal or gotchi based, so we have to check it.
   // if its zero gotchi is sacrified.
-  if (gotchi.status.gt(BigInt.fromI32(2))) {
+  if (gotchi.status.equals(STATUS_AAVEGOTCHI)) {
     gotchi.owner = newOwner.id;
     gotchi.save();
   } else {

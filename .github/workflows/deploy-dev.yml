@@ -1,0 +1,29 @@
+name: Deploy Graph
+
+on:
+  push:
+    branches: staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install Yarn
+        run: npm i -g yarn
+      - name: Install Libs
+        run: yarn --frozen-lockfile
+      - name: Codegen
+        run: yarn codegen
+      - name: Build
+        run: yarn build
+      - name: Run Unit Tests
+        run: yarn test:unit
+      - name: Deploy to TheGraph Hosted Service
+        run: |
+          npx graph deploy --access-token ${{secrets.GRAPH_ACCESS_TOKEN_DEV}} froid1911/aavegotchi-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node ${{secrets.GRAPH_NODE_DEV}}
+        shell: bash

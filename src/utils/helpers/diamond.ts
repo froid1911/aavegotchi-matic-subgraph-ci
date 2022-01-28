@@ -55,7 +55,7 @@ export function getOrCreateAavegotchiOption(
 
 export function getOrCreateAavegotchi(
   id: string,
-  event: ethereum.Event,
+  event: ethereum.Event
 ): Aavegotchi {
   let gotchi = Aavegotchi.load(id);
 
@@ -67,7 +67,7 @@ export function getOrCreateAavegotchi(
     gotchi.historicalPrices = [];
   }
 
-  return gotchi as Aavegotchi;
+  return gotchi;
 }
 
 export function getOrCreateUser(

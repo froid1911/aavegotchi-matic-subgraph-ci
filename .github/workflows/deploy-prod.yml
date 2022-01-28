@@ -1,8 +1,7 @@
 name: Deploy Graph
 
 on:
-  push:
-    branches: main
+  release:
 
 jobs:
   deploy:
@@ -21,7 +20,9 @@ jobs:
         run: yarn codegen
       - name: Build
         run: yarn build
+      - name: Run Unit Tests
+        run: yarn test:unit
       - name: Deploy to TheGraph Hosted Service
         run: |
-          npx graph deploy --access-token ${{secrets.GRAPH_ACCESS_TOKEN}} aavegotchi/aavegotchi-core-matic subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/
+          npx graph deploy --access-token ${{secrets.GRAPH_ACCESS_TOKEN}} froid1911/aavegotchi-core-matic subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/
         shell: bash
