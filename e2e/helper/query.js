@@ -1,5 +1,5 @@
 const apollo = require("apollo-fetch");
-export async function query(endpoint, query) {
+async function query(endpoint, query) {
   const graph = apollo.createApolloFetch({
     uri: endpoint,
   });
@@ -7,4 +7,4 @@ export async function query(endpoint, query) {
   return result;
 }
 
-export default query;
+module.exports = query;
