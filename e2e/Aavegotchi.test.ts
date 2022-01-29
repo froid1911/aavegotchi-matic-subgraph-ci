@@ -1,6 +1,7 @@
-import { query } from "../helper/query";
-import {config} from "../helper/config";
-import compare from "../helper/compare";
+const query = require("./helper/query");
+const config = require("./helper/config");
+const compare = require("./helper/compare");
+
 describe("Aavegotchis", () => {
   it("should not contain an entity with claimedAt: null", async () => {
     const queryString = `

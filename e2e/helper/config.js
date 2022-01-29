@@ -1,6 +1,7 @@
-export const config = {
-    endpoint: process.env.GRAPH_ENDPOINT,
-    endpointCmp: process.env.GRAPH_ENDPOINT_CMP
-}
+require("dotenv").config({ path: "./.env.e2e" });
+const config = {
+  endpoint: process.env.GRAPH_URL,
+  endpointCmp: process.env.GRAPH_URL_CMP,
+};
 
-export default config;
+module.exports = config;
