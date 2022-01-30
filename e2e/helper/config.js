@@ -1,7 +1,8 @@
-require("dotenv").config({ path: "./.env.e2e" });
+require("dotenv").config();
 const config = {
   endpoint: process.env.GRAPH_URL,
-  endpointCmp: process.env.GRAPH_URL_CMP,
+  endpointProd: process.env.GRAPH_URL_PROD,
+  rpcUrl: process.env.RPC_URL,
 };
 
 module.exports = config;
