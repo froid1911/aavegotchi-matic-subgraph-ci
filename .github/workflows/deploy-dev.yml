@@ -7,6 +7,7 @@ on:
 jobs:
   deployDev:
     runs-on: ubuntu-latest
+    environment: Staging
     steps:
       - uses: actions/checkout@v1
       - name: Install node
@@ -25,6 +26,5 @@ jobs:
         run: yarn test:unit
       - name: Deploy to Staging
         run: |
-          export timestamp=$(node -e "console.log(new Date().getTime())")
-          npx graph deploy --access-token ${{secrets.GRAPH_ACCESS_TOKEN}} froid1911/aavegotchi-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node ${{secrets.GRAPH_NODE}} -l v0.0.${timestamp}
+          npx graph deploy --access-token ${{secrets.GRAPH_ACCESS_TOKEN}} froid1911/aavegotchi-subgraph subgraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node ${{secrets.GRAPH_NODE}} -l v0.0.1
         shell: bash
