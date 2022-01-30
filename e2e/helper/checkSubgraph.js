@@ -2,6 +2,7 @@ const apollo = require("apollo-fetch");
 const ethers = require("ethers");
 const config = require("./config");
 
+console.log(config.rpcUrl);
 const provider = new ethers.providers.JsonRpcProvider(config.rpcUrl);
 const graph = apollo.createApolloFetch({ uri: config.endpoint });
 
