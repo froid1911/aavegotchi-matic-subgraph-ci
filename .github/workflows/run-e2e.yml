@@ -17,11 +17,7 @@ jobs:
         run: npm i -g yarn
       - name: Install Libs
         run: yarn --frozen-lockfile
-      - name: Codegen
-        run: yarn codegen
-      - name: Build
-        run: yarn build
-      - name: Run Unit Tests
-        run: yarn test:unit
+      - name: Check if Deployment is synced
+        run: yarn check-deployment
       - name: Run E2E Tests
         run: yarn test:e2e

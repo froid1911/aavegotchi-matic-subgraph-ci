@@ -24,7 +24,7 @@ describe("Aavegotchis", () => {
     `
 
     const result = await query(config.endpoint, queryString);
-    const resultCmp = await query(config.endpointCmp, queryString);
+    const resultCmp = await query(config.endpointProd, queryString);
     const response = compare(result.data, resultCmp.data)
     expect(response).toBe(true);
   })
