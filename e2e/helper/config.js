@@ -5,4 +5,7 @@ const config = {
   rpcUrl: process.env.RPC_URL,
 };
 
+console.log(process.env.RPC_URL);
+console.log(config);
+
 module.exports = config;
