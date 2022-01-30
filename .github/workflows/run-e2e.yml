@@ -22,3 +22,7 @@ jobs:
         run: yarn check-deployment
       - name: Run E2E Tests
         run: yarn test:e2e
+        env:
+          RPC_URL: ${{ secrets.RPC_URL }}
+          GRAPH_URL: ${{ secrets.GRAPH_URL }}
+          GRAPH_URL_PROD: ${{ secrets.GRAPH_URL_PROD }}
